@@ -1,109 +1,76 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { AntDesign, Entypo, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
+import React from 'react';
+import { StyleSheet, Image, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import tw from "twrnc"
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
-export default function TabTwoScreen() {
+export default function ProfileScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
-  );
+    <SafeAreaView>
+      <ScrollView>
+      <View style={tw`p-10 items-center`}>
+        <Image source={require('../../assets/images/baeksongmir.jpg')} style={tw`h-50 w-50 rounded-full border border-red-950`}></Image>
+        <Text style={tw`text-center font-extrabold text-2xl mt-2`}>Baek Song Min</Text>
+        <Text style={tw`mt-1 font-semibold text-gray-600 mb-3`}> Wanita Karir | Model <AntDesign name='checkcircleo' color='blue'></AntDesign></Text>
+
+        <View style={tw`flex-row gap-5 mt-2`}>
+        <FontAwesome style={tw`bg-gray-300 rounded-full p-2 px-3 text-blue-600`} name="facebook" size={24}/> 
+        <FontAwesome style={tw`bg-gray-300 rounded-full p-2 px-3 text-blue-400`} name="twitter" size={24}/> 
+        <Entypo style={tw`bg-gray-300 rounded-full p-2 px-3 text-red-600`} name="youtube" size={24}/> 
+        <FontAwesome style={tw`bg-gray-300 rounded-full p-2 px-3 text-rose-600`} name="instagram" size={24}/> 
+        </View>
+      </View>
+      
+      <View style={tw`flex-row w-full justify-around `}>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>11</Text>
+            <Text style={tw`font-extrabold text-lg`}>Posts</Text>
+          </View>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>11.6K</Text>
+            <Text style={tw`font-extrabold text-lg`}>Followers</Text>
+          </View>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>100</Text>
+            <Text style={tw`font-extrabold text-lg`}>Following</Text>
+          </View>
+        </View>
+
+        <View style={tw`flex-row justify-center gap-4 px-5 mt-5`}>
+          <Link href="/pesat/project" style={tw`bg-amber-700 py-3 w-1/2 rounded`}>
+            <Text style={tw`text-black-200 bg-amber-700  py-3 text-center text-lg font-medium rounded w-1/2`}>Project</Text></Link>
+            <Link href="/pesat/siswa" style={tw`bg-black py-3 w-1/2 rounded`}>
+            <Text style={tw`text-amber-700 bg-black py-3 text-center text-lg font-medium rounded w-1/2`}>My Modelling</Text></Link>
+          </View>
+
+          <View style={tw`flex-row flex-wrap gap-y-5 w-full justify-between mt-3`}>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmik.jpg')} style={tw`w-full h-30`}/>
+            </View>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmip.jpg')} style={tw`w-full h-30`}/>
+            </View>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmih.jpg')} style={tw`w-full h-30`}/>
+            </View>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmig.jpg')} style={tw`w-full h-30`}/>
+            </View>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmim.jpg')} style={tw`w-full h-30`}/>
+            </View>
+            <View style={tw`basis-[30%]`}>
+              <Image source={require('../../assets/images/baeksongmin.jpg')} style={tw`w-full h-30`}/>
+            </View>
+          </View>
+
+</ScrollView>
+</SafeAreaView> 
+);
 }
 
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});
+
+
+

@@ -31,7 +31,11 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
+        <Stack.Screen name="pesat/project" options={{ headerShown: true, title: "Proyek" }} />
+        <Stack.Screen name="pesat/siswa" options={{ headerShown: true, title: "Siswa" }} />
+        <Stack.Screen name="pesat/detail" options={{ headerShown: true, title:"Detail Siswa" }} />
+        <Stack.Screen name="pesat/detailv" options={{ headerShown: true, title:"Detail Proyek" }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

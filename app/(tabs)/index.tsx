@@ -1,74 +1,94 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View , Text, ImageBackground, ScrollView} from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import tw from "twrnc"
+import { Entypo, FontAwesome } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView>
+      <ScrollView>
+      <ImageBackground source={require('../../assets/images/baeksongmik.jpg')} style={tw`w-full h-220 item-center absolute `}/>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        
+      </View>
+
+      <View style={tw`bg-amber-700 p-10 mt-100  rounded-t-3xl `}>
+        <View>
+          <Text style={tw`font-extrabold text-3xl`}>Baek Song Min</Text>
+          <View style={tw` flex-row gap-5 mt-3`}>
+          <Text style={tw`font-extrabold `}>Strategist</Text>
+          <Text style={tw`font-extrabold`}> <Entypo name='location-pin'/> Dubai</Text>
+          </View>
+        </View>
+
+        <View style={tw`flex-row w-full justify-between mt-7`}>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>11</Text>
+            <Text style={tw`font-extrabold text-lg`}>Kelas</Text>
+          </View>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>RPL</Text>
+            <Text style={tw`font-extrabold text-lg`}>Jurusan</Text>
+          </View>
+          <View>
+            <Text style={tw`font-extrabold text-lg`}>542</Text>
+            <Text style={tw`font-extrabold text-lg`}>Pengikut</Text>
+          </View>
+        </View>
+
+        <View style={tw`mt-10`}>
+            <Text style={tw`text-amber-700 bg-black w-25 p-2 text-center text-lg font-medium rounded-3xl`}>Hire Me</Text>
+          </View>
+
+          <View style={tw`mt-8 flex-row items-center w-100 gap-5`}>
+            <View>
+              <FontAwesome name="facebook" size={24}/>
+            </View>
+            
+            <View>
+              <FontAwesome name="linkedin" size={24}/>
+            </View>
+
+            <View>
+              <FontAwesome name="twitter" size={24}/>
+             </View>
+          </View>
+
+          <View style={tw`mt-7`}>
+            <Text style={tw` font-extrabold text-lg`}>ABOUT</Text>
+            <Text style={tw` text-justify`}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam a ipsa quaerat ea aperiam asperiores repellendus voluptatum. Cum, autem dolorem cupiditate quos, excepturi rerum repudiandae laboriosam a molestiae nulla pariatur!</Text>
+          </View>
+
+          <View style={tw`mt-7`}>
+            <Text style={tw` font-extrabold text-lg`}>PROJECTS</Text>
+            <Text style={tw` text-justify`}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam a ipsa quaerat ea aperiam asperiores repellendus voluptatum. Cum, autem dolorem cupiditate quos, excepturi rerum repudiandae laboriosam a molestiae nulla pariatur!</Text>
+          </View>
+
+          <Text style={tw`mt-7 font-extrabold text-lg`}>
+              TOOLS
+          </Text>
+          <View style={tw`justify-between flex-row mx-1`}>
+            <Text style={tw` font-extrabold mt-2 `}> Microsoft Excel </Text>
+            <Text style={tw` font-extrabold mt-2 `}> Microsoft Word </Text>
+          </View>
+
+
+      </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
+
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+
+
+
 });
+
+
